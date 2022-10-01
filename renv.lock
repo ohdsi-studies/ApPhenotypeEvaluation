@@ -1663,7 +1663,7 @@
       "Repository": "CRAN",
       "Hash": "c7eef2996ac270a18c2715c997a727c5",
       "Requirements": []
-    }
+    },
     "ApPhenotypeEvaluation" : {
 			"Package" : "ApPhenotypeEvaluation",
 			"Version" : "0.0.1",
@@ -1673,6 +1673,6 @@
 			"RemoteRepo" : "ApPhenotypeEvaluation",
 			"RemoteUsername" : "ohdsi-studies",
 			"RemoteRef" : "main"
-		}
+	}
   }
 }
