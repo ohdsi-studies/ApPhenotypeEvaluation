@@ -268,7 +268,7 @@
     },
     "PatientLevelPrediction": {
       "Package": "PatientLevelPrediction",
-      "Version": "6.0.0",
+      "Version": "5.0.5",
       "Source": "GitHub",
       "RemoteType": "github",
       "Remotes": "ohdsi/BigKnn, ohdsi/Eunomia, ohdsi/FeatureExtraction,\n    ohdsi/IterativeHardThresholding, ohdsi/ParallelLogger,\n    ohdsi/OhdsiShinyModules",
