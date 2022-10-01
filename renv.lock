@@ -275,7 +275,7 @@
       "RemoteHost": "api.github.com",
       "RemoteRepo": "PatientLevelPrediction",
       "RemoteUsername": "ohdsi",
-      "RemoteRef": "v6.0.0",
+      "RemoteRef": "v5.0.5",
       "Hash": "ffec943935d0704605ea1fd25ea8fe2e",
       "Requirements": [
         "Andromeda",
