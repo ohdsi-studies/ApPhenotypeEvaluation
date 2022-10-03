@@ -23,12 +23,19 @@ This study is part of the Phenotype Development and Evaluation Workgroup activit
 Study execution
 ==========
 
-1. In `R`, install the ApPhenotypeEvaluation package:
+1. In `R`, install the ApPhenotypeEvaluation package in a new directory:
 
   ```r
-  install.packages("devtools")
-  devtools::install_github("ohdsi-studies/ApPhenotypeEvaluation")
+  install.packages("renv")
+  packageLocation <- "" # will need >=510MB of disk space for all packages and dependencies
+  if (!file.exists(packageLocation)) {
+    dir.create(packageLocation, recursive = TRUE)
+  }
+  setwd(packageLocation)
+  download.file("https://raw.githubusercontent.com/ohdsi-studies/ApPhenotypeEvaluation/main/renv.lock", "renv.lock")
+  renv::init()
   ```
+  
 2. Modify the code below to add your specifications and execute the study!
 
   ```r
@@ -39,7 +46,7 @@ Study execution
   cohortTable <- ""
   
   # local settings =============================================================
-  studyFolder <- ""
+  studyFolder <- "" # will need >=250MB of disk space for all intermediary and final results files
   tempFolder <- ""
   options(andromedaTempFolder = tempFolder,
           spipen = 999)
@@ -76,7 +83,7 @@ Study execution
   # share results =============================================================
   ApPhenotypeEvaluation::shareResults(
     outputFolder = outputFolder,
-    keyFileName = "", # available soon
-    userName = "" # available soon
+    keyFileName = "", # data sites will receive via email
+    userName = "" # data sites will receive via email
   )
   ```

@@ -8,9 +8,17 @@ compileShinyData <- function(outputFolder) {
 
   databaseId <- basename(outputFolder)
 
-  shinyFiles <- c(file.path(outputFolder, "cohortDiagnostics", "PreMerged.RData"),
-                  file.path(outputFolder, "pheValuator", sprintf("validation_results_%s.rds", databaseId)),
-                  file.path(outputFolder, "pheValuator", sprintf("diagnostic_model_%s.rds", databaseId)))
+  cdFile <- file.path(outputFolder, "cohortDiagnostics", "PreMerged.RData")
+  validationFile <- file.path(outputFolder, "pheValuator", sprintf("validation_results_%s.rds", databaseId))
+  dxModelFile <- file.path(outputFolder, "pheValuator", sprintf("diagnostic_model_%s.rds", databaseId))
+
+  if (file.exists(validationFile)) {
+    shinyFiles <- c(cdFile,
+                    validationFile,
+                    dxModelFile)
+  } else {
+    shinyFiles <- cdFile
+  }
 
   file.copy(from = shinyFiles,
             to = shinyDataFolder,
