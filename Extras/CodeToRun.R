@@ -42,6 +42,6 @@ ApPhenotypeEvaluation::launchResultsExplorer(outputFolder)
 ## share results ===============================================================
 ApPhenotypeEvaluation::shareResults(
   outputFolder = outputFolder,
-  keyFileName = "", # available soon
-  userName = "" # available soon
+  keyFileName = "", # data sites will receive via email
+  userName = "" # data sites will receive via email
 )

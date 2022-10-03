@@ -35,8 +35,9 @@ Study execution
   download.file("https://raw.githubusercontent.com/ohdsi-studies/ApPhenotypeEvaluation/main/renv.lock", "renv.lock")
   renv::init()
   ```
-  
-2. Modify the code below to add your specifications and execute the study!
+2. If/When asked if the project already has a lockfile, select "1: Restore the project from the lockfile.".
+
+3. Modify the code below to add your specifications and execute the study!
 
   ```r
   # database settings ==========================================================
