@@ -23,11 +23,11 @@ This study is part of the Phenotype Development and Evaluation Workgroup activit
 Study execution
 ==========
 
-1. In `R`, install the ApPhenotypeEvaluation package in a new directory:
+1. Use one `R` session only. Close other open `R` sessions before beginning. Open a new `R` script from which you will run the code that installs the `ApPhenotypeEvaluation` package to a new local directory. There is no need to clone the `ApPhenotypeEvaluation` package and open it as an `R` project. Copy the following code into the blank script and replace `C:/ApPhenotypeEvaluation` with a local directory location of your choice. The `ApPhenotypeEvaluation` package and all of its dependencies will be downloaded to this location. This local directory should not be where your `R` libraries are stored. This is an independent package environment for this study.
 
   ```r
   install.packages("renv")
-  packageLocation <- "" # will need >=510MB of disk space for all packages and dependencies
+  packageLocation <- "C:/ApPhenotypeEvaluation" # will need >=510MB of disk space for all packages and dependencies
   if (!file.exists(packageLocation)) {
     dir.create(packageLocation, recursive = TRUE)
   }
@@ -35,20 +35,20 @@ Study execution
   download.file("https://raw.githubusercontent.com/ohdsi-studies/ApPhenotypeEvaluation/main/renv.lock", "renv.lock")
   renv::init()
   ```
-2. If/When asked if the project already has a lockfile, select "1: Restore the project from the lockfile.".
+2. If/when asked if the project already has a lockfile, select "1: Restore the project from the lockfile.".
 
-3. Modify the code below to add your specifications and execute the study!
+3. Modify the code below to add your specifications and execute the study. Replace `C:/StudyResults/ApPhenotypeEvaluation` and `C:/AndromedaTemp` with local directories of your choice. Your final and intermediary files will be saved in these locations. If you are asked to install additional packages during study execution, reply "y" to install, make note of which packages were installed, and please inform the study coordinator.
 
   ```r
   # database settings ==========================================================
-  databaseId <- "" # short name with no special characters please :)
-  cdmDatabaseSchema <- ""
-  cohortDatabaseSchema <- ""
-  cohortTable <- ""
+  databaseId <- "my_cdm" # a short name of your database with no special characters please :)
+  cdmDatabaseSchema <- "my_cdm_v12345"
+  cohortDatabaseSchema <- "my_database" # must have write access
+  cohortTable <- "my_cohort_table"
   
   # local settings =============================================================
-  studyFolder <- "" # will need >=250MB of disk space for all intermediary and final results files
-  tempFolder <- ""
+  studyFolder <- "C:/ApPheEvalResults/" # will need >=250MB of disk space for all intermediary and final results files
+  tempFolder <- "C:/AndromedaTemp"
   options(andromedaTempFolder = tempFolder,
           spipen = 999)
   outputFolder <- file.path(studyFolder, databaseId)
@@ -76,11 +76,19 @@ Study execution
     runCohortDiagnostics = TRUE,
     runValidation = TRUE
   )
+  ```
   
+  4. Compile and review results.
+  
+  ```r
   # review results =============================================================
   ApPhenotypeEvaluation::compileShinyData(outputFolder)
   ApPhenotypeEvaluation::launchResultsExplorer(outputFolder)
+  ```
   
+  5. Share the results with the study coordinator. You will receive your study site username and private key file for uploading results to the OHSI SFTP server. Please inform the study coordinator when your results have been uploaded.
+  
+  ```r
   # share results =============================================================
   ApPhenotypeEvaluation::shareResults(
     outputFolder = outputFolder,
