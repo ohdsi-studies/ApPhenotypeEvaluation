@@ -15,6 +15,7 @@ createCohorts <- function(connectionDetails,
   cohortsGenerated <- CohortGenerator::generateCohortSet(connectionDetails = connectionDetails,
                                                          cdmDatabaseSchema = cdmDatabaseSchema,
                                                          cohortDatabaseSchema = cohortDatabaseSchema,
+                                                         tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
                                                          cohortTableNames = cohortTableNames,
                                                          cohortDefinitionSet = cohortDefinitionSet)
 

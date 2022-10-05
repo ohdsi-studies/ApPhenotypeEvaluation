@@ -44,13 +44,15 @@ Study execution
   databaseId <- "my_cdm" # a short name of your database with no special characters please :)
   cdmDatabaseSchema <- "my_cdm_v12345"
   cohortDatabaseSchema <- "my_database" # must have write access
-  cohortTable <- "my_cohort_table"
+  cohortTable <- "ap_phe_eval"
+  tempEmulationSchema <- "my_temp_schema" # add schema where temp tables will be emulated if your database platform doesn't support temp tables
   
   # local settings =============================================================
   studyFolder <- "C:/ApPheEvalResults/" # will need >=250MB of disk space for all intermediary and final results files
   tempFolder <- "C:/AndromedaTemp"
   options(andromedaTempFolder = tempFolder,
-          spipen = 999)
+          spipen = 999,
+          sqlRenderTempEmulationSchema = tempEmulationSchema)
   outputFolder <- file.path(studyFolder, databaseId)
   
   # specify connection details =================================================
