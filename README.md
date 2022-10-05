@@ -12,7 +12,7 @@ Acute pancreatitis phenotype evaluation
 -   Study end date: **-**
 -   Protocol: **-**
 -   Publications: **-**
--   Results explorer: [**Shiny app**](https://data.ohdsi.org/)
+-   Results explorer: [**ApPhenotypeEvaluation**](https://data.ohdsi.org/ApPhenotypeEvaluation/)
 
 **Title:** Validating acute pancreatitis using a probabilistic reference standard supported by comprehensive clinical characterization
 
