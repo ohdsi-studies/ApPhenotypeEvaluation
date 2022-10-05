@@ -8,7 +8,8 @@ execute <- function(connectionDetails,
                     createCohortTable = FALSE,
                     createCohorts = FALSE,
                     runCohortDiagnostics = FALSE,
-                    runValidation = FALSE) {
+                    runValidation = FALSE,
+                    minCellCount = 5) {
 
   if (createCohortTable) {
     cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = cohortTable)
@@ -31,7 +32,8 @@ execute <- function(connectionDetails,
                                                 cohortDatabaseSchema = cohortDatabaseSchema,
                                                 cohortTable = cohortTable,
                                                 outputFolder = outputFolder,
-                                                databaseId = databaseId)
+                                                databaseId = databaseId,
+                                                minCellCount = minCellCount)
   }
 
   if (runValidation) {
