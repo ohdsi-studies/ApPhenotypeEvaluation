@@ -3,7 +3,7 @@ databaseId <- "my_cdm" # short name with no special characters please :)
 cdmDatabaseSchema <- "my_cdm_v12345"
 cohortDatabaseSchema <- "my_database"
 cohortTable <- "ap_phe_eval"
-tempEmulationSchema <- "my_temp_schema" # add schema where temp tables will be emulated if your database platform doesn't support temp tables
+tempEmulationSchema <- NULL # add schema where temp tables will be emulated if your database platform doesn't support temp tables
 
 # local settings ===============================================================
 studyFolder <- ""
